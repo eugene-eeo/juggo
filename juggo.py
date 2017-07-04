@@ -19,27 +19,27 @@ def verify(state, max_caps):
 
 def set_t(i, val):
     def l(state):
-        v = state[:]
+        v = list(state[:])
         v[i] = val
-        return v
+        return tuple(v)
     return l
 
 
 def pour_t(i, j, cap):
     def l(state):
-        v = state[:]
+        v = list(state[:])
         v[i] = min(v[i] + v[j], cap)
         v[j] = 0
-        return v
+        return tuple(v)
     return l
 
 
 def fill_t(i, j, cap):
     def l(state):
-        v = state[:]
+        v = list(state[:])
         v[j] = v[j] - (cap - v[i])
         v[i] = cap
-        return v
+        return tuple(v)
     return l
 
 
@@ -69,6 +69,7 @@ def generate_ops(max_caps):
 
 def search(initial, target, ops, max_caps):
     q = deque([(initial, [None])])
+    V = set()
     while q:
         state, path = q.popleft()
         if vectors_eq(state, target):
@@ -77,9 +78,10 @@ def search(initial, target, ops, max_caps):
             if label == path[-1]: # no progress
                 continue
             vec = op(state)
-            if vec == state: # no progress
+            if vec == state or vec in V: # no progress
                 continue
             if verify(vec, max_caps):
+                V.add(vec)
                 q.append([
                     vec,
                     path + [label],
