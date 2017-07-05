@@ -10,15 +10,15 @@ with the edges being transitions between one state to another.
 A BFS (which guarantees the shortest solution) is performed
 on the graph and then the solution is plotted.
 
- - Initial: ``[0, 0, 0]``
- - Target:  ``[2, 0, 0]``
- - Capacities: ``[5, 4, 3]``
+- Initial: ``[0, 0, 0]``
+- Target:  ``[2, 0, 0]``
+- Capacities: ``[5, 4, 3]``
 
 .. image:: images/graph.png
 
- - Initial: ``[0, 0, 0]``
- - Target:  ``[2, 1, 0]``
- - Capacities: ``[5, 4, 3]``
+- Initial: ``[0, 0, 0]``
+- Target:  ``[2, 1, 0]``
+- Capacities: ``[5, 4, 3]``
 
 .. image:: images/graph2.png
 
