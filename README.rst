@@ -1,7 +1,7 @@
 juggo
 =====
 
-.. image:: static/graph.png
+.. image:: images/graph.png
 
 Series of experiments around the `Jug Problem`_.
 
