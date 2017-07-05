@@ -25,7 +25,6 @@ The classic die hard version:
 - Capacities: ``[4, 3]``
 
 .. image:: images/graph3.png
-   :width: 400px
 
 - Initial: ``[0, 0, 0]``
 - Target:  ``[2, 0, 0]``
