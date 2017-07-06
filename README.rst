@@ -10,8 +10,6 @@ either filling the jugs with the water source, pouring water
 between jugs, or pouring water away), that will lead you to
 achieve some target amount of water in some specific jug.
 
----------------
-
 Explanation
 -----------
 
@@ -27,17 +25,15 @@ the graph and then the solution is plotted.
 
 Some sample problems::
 
-  ./jplot bfs 5,4,3 2,0,0 images/graph.png
+  $ ./jplot bfs 5,4,3 2,0,0 images/graph.png
 
 .. image:: images/graph.png
 
 ::
 
-  ./jplot bfs 5,4,3 2,1,0 images/graph2.png
+  $ ./jplot bfs 5,4,3 2,1,0 images/graph2.png
 
 .. image:: images/graph2.png
-
------------------
 
 Implementations
 ---------------
