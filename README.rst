@@ -44,9 +44,9 @@ The classic die hard version:
 
 Implementations:
 
- - General, naive BFS 'branch and bound' approach
- - An algorithm for ``(0, 0) => (0, d)``-type problems presented in
-   *Yiu-Kwong Man: An Arithmetic Approach to the General Two Water Jugs Problem* `[1]`_.
+- General, naive BFS 'branch and bound' approach.
+- An algorithm for ``(0, 0) => (0, d)``-type problems presented in
+  *Yiu-Kwong Man: An Arithmetic Approach to the General Two Water Jugs Problem* `[1]`_.
 
 
 .. _`Jug Problem`: http://www.math.tamu.edu/~dallen/hollywood/diehard/diehard.htm
