@@ -21,13 +21,7 @@ be seen as a graph with the edges being transitions between one
 state to another. A BFS (which guarantees the shortest solution)
 is performed on the graph and then the solution is plotted.
 
-The classic die hard version::
-
-  ./jplot arith 3 4 2 images/graph3.png
-
-.. image:: images/graph3.png
-
-Some harder problems::
+Some sample problems::
 
   ./jplot bfs 5,4,3 2,0,0 images/graph.png
 
