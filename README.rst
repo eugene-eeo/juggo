@@ -23,7 +23,7 @@ is performed on the graph and then the solution is plotted.
 
 The classic die hard version::
 
-  ./jplot bfs 4,3 2,- images/graph3.png
+  ./jplot arith 3 4 2 images/graph3.png
 
 .. image:: images/graph3.png
 
