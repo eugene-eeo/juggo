@@ -12,14 +12,18 @@ achieve some target amount of water in some specific jug.
 
 ---------------
 
-Generally the approach is to model the state of the jugs (the
-amount of liquid currently stored inside them) as a vector.
-There are a number of operations that can be performed on the
-state vector, (e.g. pouring from one jug to fill the other,
-emptying a jug, filling up a jug etc) and these operations can
-be seen as a graph with the edges being transitions between one
-state to another. A BFS (which guarantees the shortest solution)
-is performed on the graph and then the solution is plotted.
+Explanation
+-----------
+
+The state of the jugs (the amount of liquid currently stored
+inside them) can be represented as a vector. There are a number
+of operations that can be performed on the state vector, e.g.
+pouring from one jug to fill the other, emptying a jug, filling
+a jug etc. These operations can be seen as a graph with the edges
+``u -> v``, where ``u`` is the vector *before* the operation is
+applied, and ``v`` is the vector *after* the operation is applied.
+A BFS (which guarantees the shortest solution) is performed on
+the graph and then the solution is plotted.
 
 Some sample problems::
 
@@ -35,11 +39,11 @@ Some sample problems::
 
 -----------------
 
-Implementations:
+Implementations
+---------------
 
-- General, naive BFS 'branch and bound' approach.
-- An algorithm for ``(0, 0) => (0, d)``-type problems presented in
-  *Yiu-Kwong Man: An Arithmetic Approach to the General Two Water Jugs Problem* `[1]`_.
+- General, naive, lazy BFS 'branch and bound' approach.
+- Arithmetic algorithm for 2-jug problems (*Yiu-Kwong Man: An Arithmetic Approach to the General Two Water Jugs Problem* `[1]`_).
 
 
 .. _`Jug Problem`: http://www.math.tamu.edu/~dallen/hollywood/diehard/diehard.htm

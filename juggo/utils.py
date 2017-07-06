@@ -7,8 +7,8 @@ def vectors_eq(A, B):
     return True
 
 
-def verify(max_caps, state):
-    for u, limit in zip(state, max_caps):
+def verify(limits, state):
+    for u, limit in zip(state, limits):
         if u < 0 or u > limit:
             return False
     return True
@@ -40,15 +40,15 @@ def fill_t(i, j, cap):
     return l
 
 
-def generate_ops(max_caps):
+def generate_ops(limits):
     ops = []
-    for i, cap in enumerate(max_caps):
+    for i, cap in enumerate(limits):
         ops.extend([
             set_t(i, cap),  # fill v[i]
             set_t(i, 0),    # empty v[i]
         ])
-    for i, cap in enumerate(max_caps):
-        for j, cap2 in enumerate(max_caps):
+    for i, cap in enumerate(limits):
+        for j, _ in enumerate(limits):
             if i == j:
                 continue
             ops.extend([
