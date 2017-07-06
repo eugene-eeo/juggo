@@ -15,30 +15,33 @@ achieve some target amount of water in some specific jug.
 Generally the approach is to model the state of the jugs (the
 amount of liquid currently stored inside them) as a vector.
 There are a number of operations that can be performed on the
-state vector, and these operations can be seen as a graph with
-the edges being transitions between one state to another. A
-BFS (which guarantees the shortest solution) is performed on
-the graph and then the solution is plotted.
+state vector, (e.g. pouring from one jug to fill the other,
+emptying a jug, filling up a jug etc) and these operations can
+be seen as a graph with the edges being transitions between one
+state to another. A BFS (which guarantees the shortest solution)
+is performed on the graph and then the solution is plotted.
 
 The classic die hard version:
+
+.. image:: images/graph3.png
 
 - Initial: ``[0, 0]``
 - Target:  ``[2, *]``
 - Capacities: ``[4, 3]``
 
-.. image:: images/graph3.png
+Some harder problems:
+
+.. image:: images/graph.png
 
 - Initial: ``[0, 0, 0]``
 - Target:  ``[2, 0, 0]``
 - Capacities: ``[5, 4, 3]``
 
-.. image:: images/graph.png
+.. image:: images/graph2.png
 
 - Initial: ``[0, 0, 0]``
 - Target:  ``[2, 1, 0]``
 - Capacities: ``[5, 4, 3]``
-
-.. image:: images/graph2.png
 
 -----------------
 
