@@ -1,4 +1,4 @@
-juggo
+Juggo
 =====
 
 Series of experiments around the `Jug Problem`_. The Jug
@@ -9,6 +9,8 @@ the jug(s). Find a series of operations (which all involve
 either filling the jugs with the water source, pouring water
 between jugs, or pouring water away), that will lead you to
 achieve some target amount of water in some specific jug.
+
+---------------
 
 Generally the approach is to model the state of the jugs (the
 amount of liquid currently stored inside them) as a vector.
@@ -38,5 +40,14 @@ The classic die hard version:
 
 .. image:: images/graph2.png
 
+-----------------
+
+Implementations:
+
+ - General, naive BFS 'branch and bound' approach
+ - An algorithm for ``(0, 0) => (0, d)``-type problems presented in
+   *Yiu-Kwong Man: An Arithmetic Approach to the General Two Water Jugs Problem* `[1]`_.
+
 
 .. _`Jug Problem`: http://www.math.tamu.edu/~dallen/hollywood/diehard/diehard.htm
+.. _`[1]`: papers/WCE2013_pp145-147.pdf
