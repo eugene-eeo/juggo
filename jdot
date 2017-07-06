@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
 Usage:
-    jugdot arith <m> <n> <d>
-    jugdot bfs <limits> <target>
+    jdot arith <m> <n> <d>
+    jdot bfs <limits> <target>
 """
 
 import docopt
@@ -28,7 +28,7 @@ def plot_arithmetic(m, n, d):
 def plot_bfs(max_caps, target):
     M = []
     S = []
-    initial = (0,) * max_caps
+    initial = (0,) * len(max_caps)
     for u, v, path in all_paths(initial, max_caps):
         M.append((u, v))
         if vectors_eq(v, target):

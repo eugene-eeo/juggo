@@ -4,6 +4,6 @@ filename="${@: -1}"
 length=$(($#-1))
 array=${@:1:$length}
 
-./jugdot $array \
+./jdot $array \
     | dot -Gdpi=300 -Nfontname=Menlo -Nshape=box -Tpng \
     > "$filename"

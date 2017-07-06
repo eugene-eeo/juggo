@@ -21,27 +21,23 @@ be seen as a graph with the edges being transitions between one
 state to another. A BFS (which guarantees the shortest solution)
 is performed on the graph and then the solution is plotted.
 
-The classic die hard version:
+The classic die hard version::
+
+  ./jplot bfs 4,3 2,- images/graph3.png
 
 .. image:: images/graph3.png
 
-- Initial: ``[0, 0]``
-- Target:  ``[2, *]``
-- Capacities: ``[4, 3]``
+Some harder problems::
 
-Some harder problems:
+  ./jplot bfs 5,4,3 2,0,0 images/graph.png
 
 .. image:: images/graph.png
 
-- Initial: ``[0, 0, 0]``
-- Target:  ``[2, 0, 0]``
-- Capacities: ``[5, 4, 3]``
+::
+
+  ./jplot bfs 5,4,3 2,1,0 images/graph2.png
 
 .. image:: images/graph2.png
-
-- Initial: ``[0, 0, 0]``
-- Target:  ``[2, 1, 0]``
-- Capacities: ``[5, 4, 3]``
 
 -----------------
 
