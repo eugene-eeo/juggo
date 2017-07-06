@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+filename="${@: -1}"
+length=$(($#-1))
+array=${@:1:$length}
+
+./jugdot $array \
+    | dot -Gdpi=300 -Nfontname=Menlo -Nshape=box -Tpng \
+    > "$filename"

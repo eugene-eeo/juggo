@@ -1,4 +1,4 @@
-from juggo import generate_ops, verify
+from .utils import generate_ops, verify
 
 
 def solve(m, n, d):
@@ -19,7 +19,7 @@ def solve(m, n, d):
 
 
 
-def path(m, n, d):
+def find_transforms(m, n, d):
     """
     Finds the sequence of operations to get from
     (0, 0) to (0, d). Uses the solve(m, n, d)
@@ -31,25 +31,24 @@ def path(m, n, d):
     prev = 0
 
     def find(k, vec):
-        for label, op in ops:
+        for op in ops:
             v = op(vec)
             if v != vec and sum(v) == k and verify((m, n), v):
-                return label, v
-        return False, False
+                return v
+        return None
 
     for k in seq:
-        label, v = find(k, vec)
+        v = find(k, vec)
         # if the curent sum cannot be reached via the previous operations,
         # find the state with an equivalent previous sum first
-        if not label:
-            label, vec = find(prev, vec)
-            yield label, vec
-            label, v = find(k, vec)
-
-        yield label, v
+        if v is None:
+            vec = find(prev, vec)
+            yield vec
+            v = find(k, vec)
+        yield v
         vec = v
         prev = k
 
     if vec[1] != d:
-        label, vec = find(d, vec)
-        yield label, vec
+        vec = find(d, vec)
+        yield vec
