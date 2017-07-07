@@ -15,9 +15,14 @@ Explanation
 
 The state of the jugs (the amount of liquid currently stored
 inside them) can be represented as a vector. There are a number
-of operations that can be performed on the state vector, e.g.
-pouring from one jug to fill the other, emptying a jug, filling
-a jug etc. These operations can be seen as a graph with the edges
+of operations that can be performed on the state vector:
+
+- *↑ i*: fill the *i*-th jug.
+- *↓ i*: empty the *i*-th jug.
+- *i→ j*: pour from the *i*-th to the *j*-th jug until either
+  jug *i* is empty or jug *j* is full.
+
+These operations can be seen as a graph with the edges
 ``u -> v``, where ``u`` is the vector *before* the operation is
 applied, and ``v`` is the vector *after* the operation is applied.
 A BFS (which guarantees the shortest solution) is performed on

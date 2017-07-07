@@ -9,13 +9,21 @@ def solve(m, n, d):
     assert 0 < m < n
     assert d < n
 
+    i = 0
+    max_i = 2 * (m + n - 2)
+
     k = 0
-    while k != d:
+    while k != d and i < max_i:
+        i += 1
         k += m
         yield k
         if k > n:
+            i += 1
             k -= n
             yield k
+
+    if k != d:
+        raise ValueError
 
 
 
@@ -26,7 +34,7 @@ def find_transforms(m, n, d):
     function.
     """
     vec = (0, 0)
-    ops = generate_ops((m, n))
+    ops = list(generate_ops((m, n)))
     seq = solve(m, n, d)
     prev = 0
 
@@ -49,6 +57,6 @@ def find_transforms(m, n, d):
         vec = v
         prev = k
 
-    if vec[1] != d:
-        vec = find(d, vec)
-        yield vec
+    assert sum(vec) == d
+    if vec != (0, d):
+        yield (0, d)
