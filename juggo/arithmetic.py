@@ -9,13 +9,21 @@ def solve(m, n, d):
     assert 0 < m < n
     assert d < n
 
+    i = 0
+    max_i = 2 * (m + n - 2)
+
     k = 0
-    while k != d:
+    while k != d and i < max_i:
+        i += 1
         k += m
         yield k
         if k > n:
+            i += 1
             k -= n
             yield k
+
+    if k != d:
+        raise ValueError
 
 
 
