@@ -3,7 +3,7 @@ from .utils import generate_ops, verify, vectors_eq
 
 
 def all_paths(initial, limits):
-    ops = generate_ops(limits)
+    ops = list(generate_ops(limits))
     q = deque([[initial]])
     seen = set([initial])
     while q:

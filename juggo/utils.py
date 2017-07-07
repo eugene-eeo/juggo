@@ -15,44 +15,33 @@ def verify(limits, state):
 
 
 def set_t(i, val):
-    def l(state):
-        v = list(state[:])
+    def l(u):
+        v = list(u[:])
         v[i] = val
         return tuple(v)
     return l
 
 
 def pour_t(i, j, cap):
-    def l(state):
-        v = list(state[:])
-        v[i] = min(v[i] + v[j], cap)
-        v[j] = 0
-        return tuple(v)
-    return l
-
-
-def fill_t(i, j, cap):
-    def l(state):
-        v = list(state[:])
-        v[j] = v[j] - (cap - v[i])
-        v[i] = cap
+    def l(u):
+        v = list(u[:])
+        x, y = v[i], v[j]
+        if x + y > cap:
+            v[i] = cap
+            v[j] = x + y - cap
+        else:
+            v[i] = x + y
+            v[j] = 0
         return tuple(v)
     return l
 
 
 def generate_ops(limits):
-    ops = []
     for i, cap in enumerate(limits):
-        ops.extend([
-            set_t(i, cap),  # fill v[i]
-            set_t(i, 0),    # empty v[i]
-        ])
+        yield set_t(i, cap)  # fill v[i]
+        yield set_t(i, 0)    # empty v[i]
     for i, cap in enumerate(limits):
         for j, _ in enumerate(limits):
-            if i == j:
-                continue
-            ops.extend([
-                pour_t(i, j, cap), # pour v[j] to v[i]
-                fill_t(i, j, cap), # fill v[i] to max with v[j]
-            ])
-    return ops
+            if i != j:
+                # pour v[j] to v[i]
+                yield pour_t(i, j, cap)
