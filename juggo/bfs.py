@@ -11,9 +11,9 @@ def all_paths(initial, limits):
         u = path[-1]
         for op in ops:
             v = op(u)
-            if v == u or v in seen: # no progress
+            if v == u: # no progress
                 continue
-            if verify(limits, v):
+            if verify(limits, v) and v not in seen:
                 seen.add(v)
                 p = path + [v]
                 q.append(p)

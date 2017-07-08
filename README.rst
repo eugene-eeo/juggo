@@ -45,7 +45,9 @@ Implementations
 
 - General, naive, lazy BFS 'branch and bound' approach.
 - Arithmetic algorithm for 2-jug problems (*Yiu-Kwong Man: An Arithmetic Approach to the General Two Water Jugs Problem* `[1]`_).
+- 3-Jugs Problem (*CJH McDiarmid, JR Alfonsin: Sharing Jugs of Wine* `[2]`_).
 
 
 .. _`Jug Problem`: http://www.math.tamu.edu/~dallen/hollywood/diehard/diehard.htm
 .. _`[1]`: papers/WCE2013_pp145-147.pdf
+.. _`[2]`: papers/sharing-jugs-of-wine.pdf

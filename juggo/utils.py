@@ -23,6 +23,10 @@ def set_t(i, val):
 
 
 def pour_t(i, j, cap):
+    """
+    Pour from v[j] to v[i], where *cap* is the maximum
+    capacity of jug *i*.
+    """
     def l(u):
         v = list(u[:])
         x, y = v[i], v[j]

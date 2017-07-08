@@ -1,6 +1,5 @@
 from collections import defaultdict
 from graphviz import Digraph
-from .utils import vectors_eq
 
 
 class Node:
@@ -54,8 +53,8 @@ def add_trace(color, vecs):
     def func(G):
         nodes, edges = G
         for i in range(1, len(vecs)):
-            for edge in edges.values():
-                if edge.src == nodes[vecs[i-1]] and edge.dst == nodes[vecs[i]]:
+            for (src, dst), edge in edges.items():
+                if src == vecs[i-1] and dst == vecs[i]:
                     edge.color = color
         return G
     return func
