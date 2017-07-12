@@ -1,14 +1,14 @@
-import math
 from .utils import pour_t
 
 
 def solve(m, s):
     """
     Solves the 3-Jug problem given 2 jugs of capacities *m*,
-    *s*, where ``m >= s >= 1``. Initial state is ``(b, 0, 0)``
-    where *b = m + s* and the target state is
-    ``(⌈b/2⌉, ⌊b/2⌋, 0)``.
+    *s*, where ``m >= s >= 1``, and ``b % 2 == 0``. Initial
+    state is ``(b, 0, 0)`` where *b = m + s* and the target
+    state is ``(b/2, b/2, 0)``.
     """
+    assert b % 2 == 0
     assert m >= s >= 1
 
     # [ b', m', s' ]
@@ -27,11 +27,7 @@ def solve(m, s):
                 u = m_to_b(u); yield u
                 u = s_to_m(u); yield u
 
-    target = (
-        math.ceil(b/2),
-        math.floor(b/2),
-        0,
-        )
+    target = (b // 2, b // 2, 0)
     for v in gen_cycles():
         yield v
         if v == target:
