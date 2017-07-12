@@ -8,7 +8,7 @@ def solve(m, s):
     state is ``(b, 0, 0)`` where *b = m + s* and the target
     state is ``(b/2, b/2, 0)``.
     """
-    assert b % 2 == 0
+    assert (m + s) % 2 == 0
     assert m >= s >= 1
 
     # [ b', m', s' ]
@@ -20,12 +20,12 @@ def solve(m, s):
     def gen_cycles():
         u = (b, 0, 0)
         for _ in range(m):
-            u = b_to_s(u); yield u
-            u = s_to_m(u); yield u
+            u = b_to_s(u); yield u # 1
+            u = s_to_m(u); yield u # 2
 
             if u[1] == m:
-                u = m_to_b(u); yield u
-                u = s_to_m(u); yield u
+                u = m_to_b(u); yield u # 3
+                u = s_to_m(u); yield u # 4
 
     target = (b // 2, b // 2, 0)
     for v in gen_cycles():
