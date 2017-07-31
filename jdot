@@ -3,6 +3,7 @@
 Usage:
     jdot arith <m> <n> <d>
     jdot bfs <limits> <target>
+    jdot wine <m> <s>
 """
 
 import docopt
@@ -10,19 +11,28 @@ import juggo.plotting as plotting
 from juggo.arithmetic import find_transforms
 from juggo.bfs import all_paths
 from juggo.utils import vectors_eq
+from juggo.wine import solve
 
 
-def plot_arithmetic(m, n, d):
-    path = list(find_transforms(m, n, d))
-    def ipath(xs):
-        for i in range(1, len(xs)):
-            yield xs[i-1], xs[i]
+def nextprev(path):
+    path = iter(path)
+    prev = next(path, None)
+    for item in path:
+        yield prev, item
+        prev = item
 
-    return plotting.pipeline(ipath(path), [
+
+def plot(edges, path):
+    return plotting.pipeline(edges, [
         plotting.plot,
         plotting.add_trace('red', path),
         plotting.to_string,
     ])
+
+
+def plot_arithmetic(m, n, d):
+    path = list(find_transforms(m, n, d))
+    return plot(nextprev(path), path)
 
 
 def plot_bfs(max_caps, target):
@@ -34,11 +44,12 @@ def plot_bfs(max_caps, target):
         if vectors_eq(v, target):
             S = path
             break
-    return plotting.pipeline(M, [
-        plotting.plot,
-        plotting.add_trace('red', S),
-        plotting.to_string,
-    ])
+    return plot(M, S)
+
+
+def plot_wine(m, s):
+    path = list(solve(m, s))
+    return plot(nextprev(path), path)
 
 
 if __name__ == '__main__':
@@ -53,4 +64,9 @@ if __name__ == '__main__':
         print(plot_bfs(
             [int(k) for k in args['<limits>'].split(',')],
             [None if k == '-' else int(k) for k in args['<target>'].split(',')],
+        ))
+    elif args['wine']:
+        print(plot_wine(
+            int(args['<m>']),
+            int(args['<s>']),
         ))
