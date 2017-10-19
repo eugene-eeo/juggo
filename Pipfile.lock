@@ -1,0 +1,23 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "30cce0cf8885c35ef1c0c6f8f8e6de9b30467040977899da616fa9177ab8ca88"
+        },
+        "requires": {},
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "docopt": {
+            "version": "==0.6.2"
+        },
+        "graphviz": {
+            "version": "==0.8.1"
+        }
+    },
+    "develop": {}
+}
